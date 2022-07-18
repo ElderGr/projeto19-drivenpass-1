@@ -10,13 +10,13 @@ import * as repository from "../repositories/auth.repository.js";
 async function validateRegistrationData(req: Request, res: Response, next: NextFunction){
   const { email, username, password } = req.body;
 
-  const validate = schema.schemaRegisterUser.validate( { email, username, password }, { abortEarly: false });
-  if (!validate) {
+  const { error } = schema.schemaRegisterUser.validate( { email, username, password }, { abortEarly: false });
+  if (error) {
     throw new AppError(
-      'Invalid Input',
+      'Invalid input',
       422,
-      'Invalid Input',
-      'Invalid Input',
+      'Invalid input',
+      error.details.map((e) => e.message).join(', ')
     );
   }
   res.locals.body = req.body;
