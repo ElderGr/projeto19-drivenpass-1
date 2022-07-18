@@ -1,8 +1,8 @@
 import express, { Request, Response, json } from "express";
 import dotenv from "dotenv";
+import "express-async-errors";
 import cors from "cors";
 import helmet from "helmet";
-import "express-async-errors";
 
 //import ErrorHandler from './events/AppError';
 //import AppLog from './events/AppLog';
@@ -25,6 +25,6 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
+    console.log("listening on port " + PORT);
     //AppLog('Server', `Server listening on port ${PORT}`);
-    console.log("Server listening on port " + PORT);
 });
