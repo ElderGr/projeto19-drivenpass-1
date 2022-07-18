@@ -7,8 +7,8 @@ const authRouter = Router();
 
 authRouter.post(
     '/sign-up', 
-    middleware.checkEmailIsAlreadyRegistered, 
     middleware.validateRegistrationData, 
+    middleware.checkEmailIsAlreadyRegistered,
     controller.registerUser
 );
 
