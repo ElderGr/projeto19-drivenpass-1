@@ -12,3 +12,4 @@ authRouter.post(
     controller.registerUser
 );
 
+export default authRouter;
