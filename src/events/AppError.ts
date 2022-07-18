@@ -3,7 +3,7 @@
 
 import { Request, Response, NextFunction } from 'express';
 
-import AppLog from './AppLog';
+import AppLog from './AppLog.js';
 
 class AppError {
   log: string;
