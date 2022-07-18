@@ -4,8 +4,8 @@ import helmet from "helmet";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import ErrorHandler from './events/AppError.js';
-import AppLog from './events/AppLog.js';
+import ErrorHandler from "./events/AppError.js";
+import AppLog from "./events/AppLog.js";
 
 import router from "./routes/index.js"
 

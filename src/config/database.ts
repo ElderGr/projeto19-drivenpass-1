@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client';
-import dotenv from 'dotenv';
+import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
 
-import AppLog from './../events/AppLog.js';
+import AppLog from "../events/AppLog.js";
 
 dotenv.config({ path: '.env' });
 

@@ -1,9 +1,9 @@
 // Code imported from Nivaldo Farias' typescript-project-template
 // https://github.com/NivaldoFarias/drivenpass-api/blob/main/src/events/AppError.ts
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 
-import AppLog from './AppLog.js';
+import AppLog from "./AppLog.js";
 
 class AppError {
   log: string;

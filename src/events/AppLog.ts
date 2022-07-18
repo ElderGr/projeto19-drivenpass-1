@@ -1,7 +1,7 @@
 // Code imported from Nivaldo Farias' typescript-project-template
 // https://github.com/NivaldoFarias/typescript-project-template/blob/main/src/events/AppLog.ts
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
 interface Logs {
   [key: string]: string;

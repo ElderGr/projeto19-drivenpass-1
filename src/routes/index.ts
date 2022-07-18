@@ -1,6 +1,6 @@
-import express from 'express';
+import express from "express";
 
-import authRouter from './auth.route.js';
+import authRouter from "./auth.route.js";
 //import credentialRouter from './credential.route';
 //import notesRouter from './notes.route';
 //import cardsRouter from './cards.route';
