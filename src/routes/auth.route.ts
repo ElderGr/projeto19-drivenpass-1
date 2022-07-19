@@ -9,10 +9,17 @@ import { validateSchemaMiddleware } from "../middlewares/schema.middleware.js";
 const authRouter = Router();
 
 authRouter.post(
-    '/sign-up', 
-    validateSchemaMiddleware( schema.schemaRegisterUser ), 
-    middleware.checkEmailIsAlreadyRegistered,
-    controller.registerUser
+  '/sign-up', 
+  validateSchemaMiddleware( schema.RegisterUser ), 
+  middleware.checkEmailIsAlreadyRegistered,
+  controller.registerUser
+);
+
+authRouter.use(
+  '/sign-in',
+  validateSchemaMiddleware( schema.SignIn ),
+  middleware.checkUserIsValid,
+  controller.loginUser
 );
 
 export default authRouter;
