@@ -15,7 +15,7 @@ authRouter.post(
   controller.registerUser
 );
 
-authRouter.use(
+authRouter.post(
   '/sign-in',
   validateSchemaMiddleware( schema.SignIn ),
   middleware.checkUserIsValid,

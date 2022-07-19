@@ -8,7 +8,7 @@ import * as repository from "../repositories/auth.repository.js";
 import * as service from "../services/auth.service.js";
 
 async function checkEmailIsAlreadyRegistered(_req: Request, res: Response, next: NextFunction) {
-  const body: Prisma.usersCreateInput = res.locals.body;
+  const body: Prisma.UserCreateInput = res.locals.body;
   const { email } = body;
 
   const userAlreadyExists = await repository.findByEmail(email);
@@ -25,7 +25,7 @@ async function checkEmailIsAlreadyRegistered(_req: Request, res: Response, next:
 }
 
 async function checkUserIsValid(_req: Request, res: Response, next: NextFunction) {
-  const body: Prisma.usersCreateInput = res.locals.body;
+  const body: Prisma.UserCreateInput = res.locals.body;
   const { email, password } = body;
 
   const userAlreadyExists = await repository.findByEmail(email);

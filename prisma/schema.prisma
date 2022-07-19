@@ -7,10 +7,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-  id         Int      @id @default(autoincrement())
-  email      String   @unique
+model User {
+  id         Int          @id @default(autoincrement())
+  email      String       @unique
   username   String
   password   String
-  created_at DateTime @default(now())
+  created_at DateTime     @default(now())
+  Card       Card[]
+  Credential Credential[]
+  Network    Network[]
+  Note       Note[]
+
+  @@map("users")
+}
+
+model Credential {
+  id       Int    @id @default(autoincrement())
+  url      String
+  username String
+  password String
+  title    String
+  userId   Int
+  user     User   @relation(fields: [userId], references: [id])
+
+  @@unique([title, userId])
+  @@map("credentials")
+}
+
+model Note {
+  id     Int    @id @default(autoincrement())
+  title  String
+  note   String
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@unique([title, userId])
+  @@map("notes")
+}
+
+model Card {
+  id              Int     @id @default(autoincrement())
+  title           String
+  number_card     String
+  name            String
+  security_code   String
+  expiration_date String
+  password        String
+  type            String
+  isVirtual       Boolean
+  userId          Int
+  user            User    @relation(fields: [userId], references: [id])
+
+  @@unique([title, userId])
+  @@map("cards")
+}
+
+model Network {
+  id       Int    @id @default(autoincrement())
+  network  String
+  password String
+  title    String
+  userId   Int
+  user     User   @relation(fields: [userId], references: [id])
+
+  @@map("networks")
 }
